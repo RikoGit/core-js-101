@@ -311,9 +311,23 @@ const getPositivesCount = (arr) => {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
-}
+const sortDigitNamesByNumericOrder = (arr) => {
+  const digitMap = new Map();
+  digitMap.set('zero', 0);
+  digitMap.set('one', 1);
+  digitMap.set('two', 2);
+  digitMap.set('three', 3);
+  digitMap.set('four', 4);
+  digitMap.set('five', 5);
+  digitMap.set('six', 6);
+  digitMap.set('seven', 7);
+  digitMap.set('eight', 8);
+  digitMap.set('nine', 9);
+
+  const result = arr.sort((x, y) => digitMap.get(x) - digitMap.get(y));
+
+  return result;
+};
 
 /**
  * Returns the sum of all items in the specified array of numbers
